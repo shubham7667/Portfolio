@@ -1,0 +1,128 @@
+\documentclass[10.5pt,a4paper]{article}
+
+% ---------- Packages (all standard, ATS-safe: no icons, no columns, no tables) ----------
+\usepackage[margin=0.55in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[skip=3pt]{parskip}
+
+% ---------- Colors ----------
+\definecolor{headcolor}{RGB}{20,20,20}
+\definecolor{linkcolor}{RGB}{0,0,0}
+
+% ---------- Hyperlink setup (plain, no colored boxes -> ATS/printer safe) ----------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkcolor,
+    urlcolor=linkcolor,
+}
+
+% ---------- Section formatting ----------
+\titleformat{\section}{\normalsize\bfseries\color{headcolor}}{}{0em}{}[\vspace{1pt}\titlerule\vspace{1pt}]
+\titlespacing{\section}{0pt}{6pt}{2pt}
+
+% ---------- List formatting ----------
+\setlist[itemize]{leftmargin=14pt, topsep=1pt, itemsep=1pt, parsep=0pt}
+
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% ---------- Custom commands ----------
+\newcommand{\resumeItem}[1]{\item #1}
+
+\newcommand{\resumeEntry}[3]{
+  \textbf{#1} \hfill \textit{#2} \\[-1pt]
+  {\small #3}
+}
+
+\begin{document}
+
+% ============================ HEADER ============================
+\begin{center}
+    {\Huge \bfseries Shubham Kumar}\\[6pt]
+    \small
+    +91-7667956792 ~ $\vert$ ~
+    \href{mailto:rishab.ss64@gmail.com}{rishab.ss64@gmail.com} ~ $\vert$ ~
+    \href{https://github.com/shubham7667}{github.com/shubham7667} ~ $\vert$ ~
+    Ranchi, Jharkhand
+\end{center}
+
+\vspace{2pt}
+
+% ============================ SUMMARY ============================
+\section*{Professional Summary}
+M.Tech candidate in Artificial Intelligence & Machine Learning at Birla Institute of Technology, Mesra with hands-on experience in NLP, machine learning, and data science. Proficient in building end-to-end ML pipelines using Python, Scikit-learn, NumPy, and Pandas, with practical experience in deep learning using PyTorch and LLM application development using LangChain. Strong foundation in data structures, algorithms, and core computer science concepts, with 150+ solved coding problems. Passionate about building intelligent, data-driven systems and seeking AI/ML or software internships to apply and expand technical expertise.
+
+
+% ============================ EDUCATION ============================
+\section*{Education}
+
+\textbf{M.Tech -- Artificial Intelligence \& Machine Learning} \hfill CGPA: 8.1 (Ongoing) \\
+Birla Institute of Technology (BIT) Mesra \hfill 2025 -- 2027 \\
+GATE 2025 Qualified --- CSIT Stream
+
+\vspace{2pt}
+
+\textbf{B.Tech -- Computer Science \& Engineering} \hfill CGPA: 7.79 \\
+Sarala Birla University, Ranchi \hfill 2021 -- 2024
+
+% ============================ SKILLS ============================
+\section*{Technical Skills}
+\begin{itemize}[leftmargin=14pt, topsep=2pt, itemsep=2pt]
+    \item \textbf{Languages:} Python, C
+    \item \textbf{ML / DL Libraries:} Scikit-learn, NumPy, Pandas, PyTorch (basics), NLTK
+    \item \textbf{NLP \& LLM:} Transformers (BERT), LangChain, Retrieval-Augmented Generation (RAG), FAISS, Word2Vec, TF-IDF
+    \item \textbf{Core CS:} Data Structures \& Algorithms, DBMS, Operating Systems, OOP
+    \item \textbf{Tools \& Platforms:} Git, GitHub, Streamlit, Jupyter Notebook, VS Code, Google Colab
+    \item \textbf{Domains:} Machine Learning, NLP, Evolutionary Computing, Data Analysis, Clustering, Optimization
+\end{itemize}
+
+% ============================ PROJECTS ============================
+\section*{Projects \& Academic Work}
+
+\textbf{Word Sense Disambiguation using Lesk Algorithm} \hfill \textit{Python, NLTK, WordNet}
+\begin{itemize}
+    \item Designed an NLP pipeline to resolve lexical ambiguity in text by leveraging the simplified Lesk algorithm with WordNet lexical databases.
+    \item Implemented text preprocessing (tokenization, stop-word removal, lemmatization) to improve contextual overlap accuracy by ~18\%.
+    \item Evaluated performance on SemEval benchmark datasets; outcome demonstrates applicability in chatbot and IR systems.
+\end{itemize}
+
+\vspace{2pt}
+\textbf{LULC Analysis using K-Means Clustering (Remote Sensing)} \hfill \textit{Python, Scikit-learn, Rasterio, Sentinel-2 Imagery}
+\begin{itemize}
+    \item Built an unsupervised land-use/land-cover classification system processing multispectral Sentinel-2 satellite imagery using K-Means clustering.
+    \item Applied spectral band engineering and image normalization to distinguish vegetation, water bodies, urban zones, and barren land.
+    \item Visualized temporal LULC changes across multiple years to support environmental monitoring use-cases.
+\end{itemize}
+
+\vspace{2pt}
+\textbf{Sentiment Analysis on Product Reviews} \hfill \textit{Python, NLTK, Scikit-learn, TF-IDF}
+\begin{itemize}
+    \item Developed a binary sentiment classifier (positive/negative) trained on e-commerce review datasets using TF-IDF features and Logistic Regression.
+    \item Achieved 88\%+ accuracy with cross-validated evaluation; explored Naive Bayes and SVM baselines for comparison.
+\end{itemize}
+
+\vspace{2pt}
+\textbf{DocChat -- Retrieval-Augmented Generation (RAG) System for PDF Q\&A} \hfill \textit{Python, LangChain, FAISS, HuggingFace, Streamlit, Gemini}
+\begin{itemize}
+    \item Built an end-to-end modular RAG pipeline (Document Loader $\rightarrow$ Chunking $\rightarrow$ Embedding $\rightarrow$ Vector Store $\rightarrow$ Retriever $\rightarrow$ LLM) enabling natural-language question answering over PDF documents.
+    \item Implemented configurable recursive text chunking and semantic embeddings (sentence-transformers/all-MiniLM-L6-v2) indexed with FAISS for top-k similarity retrieval.
+    \item Integrated Google Gemini 2.5 Flash via LangChain with a context-grounded prompt template to minimize hallucination, and built an interactive Streamlit interface with adjustable chunking parameters, pipeline-status tracking, and retrieved-context visualization.
+\end{itemize}
+
+% ============================ ACHIEVEMENTS ============================
+\section*{Achievements \& Co-Curriculars}
+\begin{itemize}
+    \item Cleared GATE 2025 in AI/ML stream, demonstrating mastery of core CS and ML theory.
+    \item Actively solving Striver A2Z DSA Sheet --- 150+ problems across arrays, trees, graphs, and DP.
+    \item Completed coursework in Evolutionary Computing covering GA, NSGA-II, MCTS, and multi-objective optimization.
+    \item Contributed to a group research project implementing Niching GA, Multi-Objective GA, and Competitive Coevolution for job-scheduling optimization with unified visualizations.
+    
+\end{itemize}
+
+\end{document}
