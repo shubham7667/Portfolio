@@ -22,6 +22,7 @@ if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS || !TO_EMAIL) {
 }
 
 const app = express()
+app.set('trust proxy', 1)
 app.use(express.json({ limit: '20kb' }))
 app.use(cors({ origin: ALLOWED_ORIGIN }))
 
