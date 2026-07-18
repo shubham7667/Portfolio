@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useMemo } from 'react'
+import profileImg from '../../profile_img.png'
 import SolarSystem from './SolarSystem'
 import useParallax from '../hooks/useParallax'
 import useMagnetic from '../hooks/useMagnetic'
@@ -143,7 +144,7 @@ function PlaceholderPortrait() {
 
       <rect width="300" height="300" fill="url(#portraitBg)" />
       <image
-        href="/profile_img.png"
+        href={profileImg}
         x="0"
         y="0"
         width="300"
