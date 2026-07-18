@@ -128,7 +128,6 @@ export default function Hero() {
 }
 
 function PlaceholderPortrait() {
-  // Stylized silhouette placeholder — swap the <image> href for a real photo.
   return (
     <svg viewBox="0 0 300 300" className="w-full h-full">
       <defs>
@@ -141,12 +140,15 @@ function PlaceholderPortrait() {
           <stop offset="100%" stopColor="#00e5ff" />
         </linearGradient>
       </defs>
+
       <rect width="300" height="300" fill="url(#portraitBg)" />
-      <circle cx="150" cy="115" r="55" fill="url(#portraitFig)" opacity="0.85" />
-      <path
-        d="M60 300 C60 210 105 175 150 175 C195 175 240 210 240 300 Z"
-        fill="url(#portraitFig)"
-        opacity="0.85"
+      <image
+        href="/profile_img.png"
+        x="0"
+        y="0"
+        width="300"
+        height="300"
+        preserveAspectRatio="xMidYMid slice"
       />
       <circle cx="150" cy="150" r="140" stroke="#00e5ff" strokeOpacity="0.15" fill="none" />
     </svg>

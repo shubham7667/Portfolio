@@ -17,6 +17,8 @@ export default function Contact() {
 
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+  const replyTemplateId = import.meta.env.VITE_EMAILJS_REPLY_TEMPLATE_ID
+  const recipientEmail = import.meta.env.VITE_EMAILJS_TO_EMAIL || 'rishab.ss64@gmail.com'
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
   useEffect(() => {
@@ -32,8 +34,8 @@ export default function Contact() {
   async function handleSubmit(e) {
     e.preventDefault()
 
-    if (!serviceId || !templateId || !publicKey) {
-      console.error('EmailJS credentials are missing. Set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY in your environment.')
+    if (!serviceId || !templateId || !replyTemplateId || !publicKey) {
+      console.error('EmailJS credentials are missing. Set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_REPLY_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY in your environment.')
       setStatus('error')
       return
     }
@@ -41,7 +43,7 @@ export default function Contact() {
     setStatus('sending')
 
     try {
-      const templateParams = {
+      const notificationParams = {
         name: form.name,
         email: form.email,
         message: form.message,
@@ -50,9 +52,26 @@ export default function Contact() {
         user_name: form.name,
         user_email: form.email,
         reply_to: form.email,
+        to_email: recipientEmail,
+        to_name: 'Shubham Kumar',
       }
 
-      await send(serviceId, templateId, templateParams)
+      await send(serviceId, templateId, notificationParams)
+
+      const autoReplyParams = {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        from_name: 'Shubham Kumar',
+        from_email: recipientEmail,
+        user_name: form.name,
+        user_email: form.email,
+        reply_to: recipientEmail,
+        to_email: form.email,
+        to_name: form.name,
+      }
+
+      await send(serviceId, replyTemplateId, autoReplyParams)
 
       setForm({ name: '', email: '', message: '' })
       setStatus('sent')
